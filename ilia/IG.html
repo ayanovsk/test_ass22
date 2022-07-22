@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Ilia Guzei</title>
+    <!--jquery always comes first, must be declared in the <head> section-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--The stylesheet has been separated out from the html-->
+    <link rel="stylesheet" type="text/css" href="IG.css">
+    <!--<link rel="stylesheet" type="text/css" href="IG.css">-->
+</head>
+<body>
+    <div class="wrapper">
+        <article class="diagram">
+                <div id="topPlayerName" class="playerName"></div>
+                <!--This is where the diagram appears. bglog requires this container-->
+                <div id="bglogContainer"></div>
+                <div id="bottomPlayerName" class="playerName"></div>
+                <div id=playBar> <!--navigation through the decks is controlled here-->
+                    <button title="Swap direction" id="direction">&#8646;</button> <!--we give them ids so we can easily attach click handlers-->
+                    <button title="Previous card" id="prevButton">&#8592;</button>
+                    <button title="Next card" id="nextButton">&#8594;</button>
+                    <button title="Rotate board 180&#176;"id="swapsides">&#8693;</button>
+                    <button title="Copy SVG to clipboard"id="savesvg">&#10548;</button>
+                    <button title="Save diagram"id="saveDiagram">&#8659;</button>
+                </div>
+                <div id="historyBar">
+		    <button id="deckChooser">DC</button>
+                    <button id="firstAnswer">1st</button>
+                    <button id="secondAnswer">2nd</button>
+                    <button id="thirdAnswer">3rd</button>
+                    <button id="fourthAnswer">4th</button>
+                    <button id="fifthAnswer">5th</button>
+                </div>
+        </article>
+        <aside class="eval eval-1">
+        	<!--Move and Cube evaluations inserted here-->
+            <div hidden id="eval"></div>
+        </aside>
+    </div>
+    <div id="scoreDialog"></div>
+    <div id="decksDialog"></div>
+    <!--At the end of our html, before the <body> tag closes, we add local scripts-->
+    <!--gsap is greensock.com, which does the animation-->
+	<script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!--the core bglog library-->
+	<script defer src="https://bglog.org/bglog-repo2/js/bglog/bglogCore-2207A-svg.min.js"></script>
+    <!--your local data, created by your parser -->
+    <script defer src="IG_decklist.js"></script>
+    <script defer src="IG_test_deck_1.js"></script>
+    <script defer src="IG_test_deck_2.js"></script>
+    <!--and the js to control it all-->
+    <script defer src="IGfunctions.js"></script>
+    <script defer src="IG.js" type="module"></script>
+</body>
+</html>
